@@ -1,0 +1,107 @@
+<main id="main" class="main">
+    <section class="section">
+      <div class="row"> 
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+                                  <div class="table-responsive"> 
+                        
+                    
+             <table class="table table-bordered border-primary">
+                <thead>
+                  <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col" class="text-nowrap">ORDER No.</th>
+                    <th scope="col" class="text-nowrap">--- Product Details ---</th>
+                    <th scope="col" class="text-nowrap">QTY.</th>
+                    <th scope="col" class="text-nowrap">Total Amount</th>
+                    <th scope="col" class="text-nowrap">------ Customer Details ------</th>
+                    <th scope="col" class="text-nowrap">Order Date</th>
+                    <th scope="col" class="text-nowrap">Payment Status</th>
+                    <th scope="col" class="text-nowrap">Delivery Status</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                                                            
+                                <tr>
+                                    <td>ODR0016</td>
+                                    <td>
+                                                                            <strong>Product Code: </strong>PDR0015                                        <br>
+                                        <strong>Quantity: </strong>13                                        <br>
+                                        <strong>Size(Numeric size): </strong>No Size                                        <br>
+                                        <strong>Size(Alphabetical size): </strong>XXL                                        <br>
+                                                                        </td>
+                                    <td>13</td>
+                                    <td>Rs. 1599</td>
+                                    <td style="width:210px;">
+                                        <strong>Name : </strong>Polsing Ambule<br>
+                                        <strong>Address : </strong>2424 Wanjari House, Near Dharmraj School, Pilli  Nadi Kamptee Road, Nagpur, Maharashtra, India.<br>
+                                        <strong>City : </strong>Nagpur<br>
+                                        <strong>Pincode : </strong>441911<br>
+                                        <strong>Landmark : </strong>Near College<br>
+                                    </td>
+                                    <td>15 Apr, 2024</td>
+                                    <td>
+                                                                            </td>
+                                    
+                                </tr>
+                                                        </tbody>
+              </table>
+              </div>
+                              <div class="pagination-outer">
+                    <ul class="pagination"></ul>                </div>
+
+            </div>
+          </div>
+          <button onclick="generatePDF()">Generate PDF</button>
+<script>
+function generatePDF() {
+    // Get the HTML content to be converted to PDF
+    const pdfContent = document.getElementById('pdf-content').innerHTML;
+    
+    // Create a new window for the PDF
+    const pdfWindow = window.open('', '_blank');
+    
+    // Write the HTML content into the new window
+    pdfWindow.document.write(`
+        <html>
+        <head>
+            <title>Generated PDF</title>
+            <style>
+                /* Add your CSS styles here */
+            </style>
+        </head>
+        <body>
+            ${pdfContent}
+        </body>
+        </html>
+    `);
+
+    // Close the document after writing
+    pdfWindow.document.close();
+
+    // Generate a PDF file from the window's content
+    pdfWindow.print();
+
+    // Close the window after printing
+    pdfWindow.close();
+}
+
+function shareViaWhatsApp() {
+    // Replace 'your-pdf-link-here' with the actual link to your PDF file
+    const pdfLink = 'your-pdf-link-here';
+    
+    // Create a WhatsApp share message with the PDF link
+    const whatsappMessage = `Check out this PDF: ${pdfLink}`;
+    
+    // Open WhatsApp with the message
+    window.location.href = `whatsapp://send?text=${encodeURIComponent(whatsappMessage)}`;
+}
+</script>
+        </div>
+      </div>
+    </section>
+
+  </main>
